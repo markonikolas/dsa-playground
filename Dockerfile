@@ -16,9 +16,7 @@ ENV NODE_ENV=development
 
 VOLUME [ "/usr/src/app/node_modules" ]
 
-RUN pnpm fetch
-
-RUN pnpm install -r --offline 
+RUN pnpm install -r --no-frozen-lockfile
 
 EXPOSE ${APP_DEV_PORT}
 

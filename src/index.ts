@@ -1,15 +1,15 @@
-import { config } from 'dotenv';
-import http from 'http';
+import { SinglyListNode, SinglyLinkedList } from './DataStructures';
 
-config();
+const node = new SinglyListNode<number>(1);
+const anotherNode = new SinglyListNode<number>(2);
+const list = new SinglyLinkedList<number>(node);
 
-const { NODE_ENV, APP_DEVELOPMENT_PORT, APP_PRODUCTION_PORT } = process.env;
+const evenMoreNodes = new SinglyListNode<number>(3);
+const lastNode = new SinglyListNode<number>(4);
 
-const PORT = NODE_ENV === 'development' ? APP_DEVELOPMENT_PORT : APP_PRODUCTION_PORT;
+list.append(anotherNode)
+list.append(lastNode)
+list.prepend(evenMoreNodes)
+list.delete(anotherNode, evenMoreNodes)
 
-http
-    .createServer((req, res) => {
-        res.write('Hello World!');
-        res.end();
-    })
-    .listen(Number(PORT), '0.0.0.0', () => console.log(`Running on localhost ${PORT} in ${NODE_ENV} environment`));
+list.traverse();

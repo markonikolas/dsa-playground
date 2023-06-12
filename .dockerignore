@@ -1,0 +1,10 @@
+# Ignore everything
+*
+
+# Whitelist what you need
+!package.json
+!nodemon.json
+!pnpm-lock.yaml
+!tsconfig.json
+!src
+!src/*

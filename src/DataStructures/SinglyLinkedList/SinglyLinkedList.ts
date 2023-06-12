@@ -74,23 +74,22 @@ export class SinglyLinkedList<T> extends LinkedList<T> implements ILinkedList<T>
 
     public traverse(): string {
         let current: ListNodeType<T> | null = this.head;
-        let out = 'HEAD: ';
+        let out = '';
 
         if (!current) {
             return '<empty list>';
         }
 
         while (current) {
-
-            if (!current.next) {
-                out += ' TAIL: '
+            if (current === this.head) {
+                out += `[ HEAD: ${current.data} ]`;
+            } else if (!current.next) {
+                out += `[ TAIL: ${current.data} ]`;
+            } else {
+                out += `[ ${current.data} ] `;
             }
 
-            out += `[${current.data}]`;
-
-            if (current.next) {
-                out += ' --> ';
-            }
+            if (current.next) out += ' -> ';
 
             current = current.next;
         }

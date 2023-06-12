@@ -10,6 +10,4 @@ const lastNode = new SinglyListNode<number>(4);
 list.append(anotherNode)
 list.append(lastNode)
 list.prepend(evenMoreNodes)
-list.delete(anotherNode, evenMoreNodes)
-
 list.traverse();

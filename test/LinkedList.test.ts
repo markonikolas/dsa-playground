@@ -53,4 +53,10 @@ describe('DoublyLinkedList should exist', () => {
 	let doublyLinkedList = new DoublyLinkedList();
 
 	test('can be an empty list', () => expect(doublyLinkedList.head).toBeNull());
+
+	test('can append a node', () => {
+		doublyLinkedList.append(node1);
+
+		expect(doublyLinkedList.head).toStrictEqual(node1);
+	});
 });

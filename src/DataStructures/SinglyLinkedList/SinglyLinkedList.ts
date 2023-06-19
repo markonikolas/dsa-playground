@@ -5,7 +5,7 @@ import { LinkedList } from '../../Abstract';
 import { SinglyListNode } from './SinglyListNode';
 
 export class SinglyLinkedList<T> extends LinkedList<T> implements ILinkedList<T> {
-    constructor(head: SinglyListNode<T>) {
+    constructor(head: SinglyListNode<T> | null = null) {
         super(head);
     }
 

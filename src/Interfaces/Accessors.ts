@@ -1,16 +1,25 @@
-import { ListNodeType } from "../types";
-
-export interface IData<T> {
-    get data(): T | null;
-    set data(data: T | null);
-}
-
-export interface INextNode<T> {
-    get next(): ListNodeType<T> | null;
-    set next(next: ListNodeType<T> | null);
-}
+import { ListNode } from "../types";
 
 export interface IPrevNode<T> {
-    get prev(): ListNodeType<T> | null;
-    set prev(prev: ListNodeType<T> | null);
+    /**
+     * Gets previous node in the list.
+     */
+    get prev(): ListNode<T> | null;
+
+    /**
+     * Sets previous node in the list.
+     */
+    set prev(prev: ListNode<T> | null);
+}
+
+export interface IHeadNode<T> {
+    /**
+     * Gets the head of the list.
+     */
+    get head(): ListNode<T> | null;
+
+    /**
+     * Sets the head of the list to node provided
+     */
+    set head(node: ListNode<T> | null);
 }

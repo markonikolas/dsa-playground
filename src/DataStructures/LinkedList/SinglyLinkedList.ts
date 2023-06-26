@@ -1,27 +1,26 @@
-import { ListNodeType } from '../../types';
 import { ILinkedList } from '../../Interfaces/LinkedList';
-
-import { LinkedList } from '../../Abstract';
+import { IHeadNode } from '../../Interfaces/Accessors';
+import { ListNode } from '../../types';
 import { SinglyListNode } from './SinglyListNode';
 
-export class SinglyLinkedList<T> extends LinkedList<T> implements ILinkedList<T> {
-    constructor(head: SinglyListNode<T> | null = null) {
-        super(head);
+export class SinglyLinkedList<T> implements ILinkedList<T>, IHeadNode<T> {
+    constructor(protected _head: SinglyListNode<T> | null = null) {
+        this._head = _head;
     }
-
-    get head(): ListNodeType<T> | null {
+    
+    get head(): SinglyListNode<T> | null {
         return this._head;
     }
 
-    set head(head: ListNodeType<T> | null) {
-        this._head = head;
+    set head(node: SinglyListNode<T> | null) {
+        this._head = node;
     }
-
-    private getLast(node: ListNodeType<T>): ListNodeType<T> {
+   
+    private getLast(node: ListNode<T>): ListNode<T> {
         return node?.next ? this.getLast(node.next) : node;
     }
 
-    public prepend(node: ListNodeType<T>): ListNodeType<T> {
+    public prepend(node: SinglyListNode<T>): SinglyListNode<T> {
         if (!node) return node;
 
         if (!this.head) {
@@ -35,20 +34,20 @@ export class SinglyLinkedList<T> extends LinkedList<T> implements ILinkedList<T>
         return this.head;
     }
 
-    public append(node: ListNodeType<T>): ListNodeType<T> {
+    public append(node: SinglyListNode<T>): SinglyListNode<T> {
         if (!this.head) {
             this.head = node;
             return this.head;
         }
 
-        const lastListNode = this.getLast(this.head);
+        const lastListNode = this.getLast(this.head) as SinglyListNode<T>;
 
         lastListNode!.next = node;
 
         return lastListNode;
     }
 
-    public insert(node: ListNodeType<T>, prev: ListNodeType<T>): void {
+    public insert(node: SinglyListNode<T>, prev: SinglyListNode<T>): void {
 
         if (!node) throw new Error('You need to provide the node to insert.');
 
@@ -64,6 +63,8 @@ export class SinglyLinkedList<T> extends LinkedList<T> implements ILinkedList<T>
     public delete(node: SinglyListNode<T>, prev: SinglyListNode<T> | null): void {
         if (!this.head) throw ReferenceError('The list is empty.');
 
+        if(!node) throw ReferenceError('The node to delete isn\' t provided');
+
         if (!prev) {
             this.head = node.next;
             return;
@@ -73,7 +74,7 @@ export class SinglyLinkedList<T> extends LinkedList<T> implements ILinkedList<T>
     }
 
     public traverse(): string {
-        let current: ListNodeType<T> | null = this.head;
+        let current: ListNode<T> = this.head;
         let out = '';
 
         if (!current) {
@@ -97,7 +98,7 @@ export class SinglyLinkedList<T> extends LinkedList<T> implements ILinkedList<T>
         return out;
     }
 
-    public search(data: T): ListNodeType<T> | null {
+    public search(data: T): ListNode<T> | null {
         let current = this.head;
 
         while (current) {

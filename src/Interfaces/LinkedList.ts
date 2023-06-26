@@ -1,35 +1,25 @@
-import { ListNodeType } from "../types";
+import { ListNode } from "../types";
 
 export interface ILinkedList<T> {
     /**
-     * Gets the head of the list.
-     */
-    get head(): ListNodeType<T> | null;
-
-    /**
-     * Sets the head of the list to node provided
-     */
-    set head(node: ListNodeType<T> | null);
-
-    /**
      * Add the node to the start of the list.
      */
-    prepend(node: ListNodeType<T>): ListNodeType<T>;
+    prepend(node: ListNode<T>): ListNode<T>;
 
     /**
      * Add the node to the ent of the list.
      */
-    append(node: ListNodeType<T>): ListNodeType<T>;
+    append(node: ListNode<T>): ListNode<T>;
 
     /**
      * Delete the node from the list.
      */
-    delete(prev: ListNodeType<T>, node: ListNodeType<T>): void;
+    delete(prev: ListNode<T>, node: ListNode<T>): void;
 
     /**
      * Insert the node somewhere in the middle of the list.
      */
-    insert(node: ListNodeType<T>, prev: ListNodeType<T> | null): void;
+    insert(node: ListNode<T>, prev: ListNode<T> | null): void;
 
     /**
      * Traverse the list.
@@ -39,5 +29,5 @@ export interface ILinkedList<T> {
     /**
      * Search the list data.
      */
-    search(data: T): ListNodeType<T> | null;
+    search(data: T): ListNode<T> | null;
 }

@@ -37,4 +37,15 @@ export class DoublyLinkedList<T> extends SinglyLinkedList<T> {
 
         return newHead;
     }
+
+    public insert(node: DoublyListNode<T>, prev: DoublyListNode<T>): DoublyListNode<T> {
+
+        if (!node) throw new Error('You need to provide the node to insert.');
+        
+        node.prev = prev;
+        node.next = prev.next;
+        prev.next = node;
+
+        return node;
+    }
 }

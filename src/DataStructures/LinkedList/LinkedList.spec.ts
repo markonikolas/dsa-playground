@@ -5,7 +5,7 @@ import { SinglyLinkedList } from './SinglyLinkedList';
 import { DoublyListNode } from './DoublyListNode';
 import { DoublyLinkedList } from './DoublyLinkedList';
 
-let singly: SinglyLinkedList<string>, doubly: DoublyLinkedList<number>;
+let singly: SinglyLinkedList<string>, doubly: DoublyLinkedList<number | string>;
 
 beforeAll(() => {
 	singly = new SinglyLinkedList();
@@ -87,6 +87,14 @@ describe('DoublyLinkedList', () => {
 		expect(doubly.head).toEqual(node5)
 		expect(doubly.head?.prev).toBeNull();
 		expect(n4.prev).toEqual(node5);
+	});
+
+	it('can insert a node', () => {
+		const number = new DoublyListNode(17);
+		const string = new DoublyListNode('test');
+
+		expect(doubly.insert(number, node2));
+		expect(doubly.insert(string, node4));
 	});
 
 	it('can search for a node by contents', () => {

@@ -1,4 +1,4 @@
-import { SinglyLinkedList } from './SinglyLinkedList';
+import { SinglyLinkedList } from '../SinglyLinkedList/SinglyLinkedList';
 import { DoublyListNode } from './DoublyListNode';
 
 export class DoublyLinkedList<T> extends SinglyLinkedList<T> {

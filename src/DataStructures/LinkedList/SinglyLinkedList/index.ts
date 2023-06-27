@@ -1,2 +1,2 @@
+export * from './SinglyListNode';
 export * from './SinglyLinkedList';
-export * from './DoublyLinkedList';

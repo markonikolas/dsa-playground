@@ -1,4 +1,4 @@
-import { ListNode } from '../../types';
+import { ListNode } from '../../../types';
 
 export class SinglyListNode<T> {
 

@@ -1,7 +1,7 @@
-import { ILinkedList } from '../../Interfaces/LinkedList';
-import { IHeadNode } from '../../Interfaces/Accessors';
-import { ListNode } from '../../types';
-import { SinglyListNode } from './SinglyListNode';
+import { ListNode } from '../../../types';
+import { ILinkedList } from '../../../Interfaces/LinkedList';
+import { IHeadNode } from '../../../Interfaces/Accessors';
+import { SinglyListNode } from '.';
 
 export class SinglyLinkedList<T> implements ILinkedList<T>, IHeadNode<T> {
     constructor(protected _head: SinglyListNode<T> | null = null) {

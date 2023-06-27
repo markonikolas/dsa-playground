@@ -1,5 +1,5 @@
-import { IPrevNode } from '../../Interfaces/Accessors';
-import { SinglyListNode } from './SinglyListNode';
+import { IPrevNode } from '../../../Interfaces/Accessors';
+import { SinglyListNode } from '../SinglyLinkedList/SinglyListNode';
 
 export class DoublyListNode<T> extends SinglyListNode<T> implements IPrevNode<T> {
 

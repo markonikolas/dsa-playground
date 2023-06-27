@@ -1,4 +1,4 @@
-import { DoublyListNode, SinglyListNode } from '../DataStructures/LinkedList';
+import { DoublyListNode, SinglyListNode } from '@src/DataStructures';
 
 export interface IPrevNode<T> {
     /**

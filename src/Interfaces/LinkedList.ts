@@ -1,4 +1,4 @@
-import { ListNode } from "../types";
+import { ListNode } from "@src/types";
 
 export interface ILinkedList<T> {
     /**

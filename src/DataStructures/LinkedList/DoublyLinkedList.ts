@@ -1,6 +1,5 @@
 import { SinglyLinkedList } from './SinglyLinkedList';
 import { DoublyListNode } from './DoublyListNode';
-import { SinglyListNode } from '.';
 
 export class DoublyLinkedList<T> extends SinglyLinkedList<T> {
     constructor(protected _head: DoublyListNode<T> | null = null) {

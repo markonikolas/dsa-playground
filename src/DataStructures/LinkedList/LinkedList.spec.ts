@@ -88,4 +88,12 @@ describe('DoublyLinkedList', () => {
 		expect(doubly.head?.prev).toBeNull();
 		expect(n4.prev).toEqual(node5);
 	});
+
+	it('can search for a node by contents', () => {
+		expect(doubly.search(1)).toBe(node1);
+		expect(doubly.search(2)).toBe(node2);
+		expect(doubly.search(3)).toBe(node3);
+		expect(doubly.search(4)).toBe(node4);
+		expect(doubly.search(5)).toBe(node5);
+	});
 });

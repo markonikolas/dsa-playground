@@ -1,9 +1,40 @@
-import { ListNode } from '../../types';
-
 import { SinglyLinkedList } from './SinglyLinkedList';
+import { DoublyListNode } from './DoublyListNode';
+import { SinglyListNode } from '.';
 
 export class DoublyLinkedList<T> extends SinglyLinkedList<T> {
-    constructor(protected _head: ListNode<T> | null = null) {
+    constructor(protected _head: DoublyListNode<T> | null = null) {
         super(_head);
+    }
+
+    get head(): DoublyListNode<T> | null {
+        return this._head;
+    }
+
+    set head(node: DoublyListNode<T> | null) {
+        this._head = node;
+    }
+
+    public append(node: DoublyListNode<T>): DoublyListNode<T> {
+
+        if (!this.head) {
+            this.head = node;
+            return this.head;
+        }
+
+        const lastListNode = this.getLast(this.head) as DoublyListNode<T>;
+
+        node.prev = lastListNode;
+        lastListNode.next = node;
+
+        return node;
+    }
+
+    public prepend(node: DoublyListNode<T>): DoublyListNode<T> {
+        this.head!.prev = node;
+
+        const newHead = super.prepend(node) as DoublyListNode<T>;
+
+        return newHead;
     }
 }

@@ -5,23 +5,36 @@ import { SinglyListNode } from './SinglyListNode';
 
 export class SinglyLinkedList<T> implements ILinkedList<T>, IHeadNode<T> {
     constructor(protected _head: SinglyListNode<T> | null = null) {
+        /**
+         * Head of the linked list.
+         */
         this._head = _head;
     }
     
-    get head(): SinglyListNode<T> | null {
+    /**
+     * Get the head of the list.
+     */
+    get head(): ListNode<T> | null {
         return this._head;
     }
 
-    set head(node: SinglyListNode<T> | null) {
+    /**
+     * Set the new head of the list.
+     */
+    set head(node: ListNode<T> | null) {
         this._head = node;
     }
    
-    private getLast(node: ListNode<T>): ListNode<T> {
+    /**
+     * Get the last node of the list.
+     * 
+     */
+    protected getLast(node: ListNode<T>): ListNode<T> {
         return node?.next ? this.getLast(node.next) : node;
     }
 
     public prepend(node: SinglyListNode<T>): SinglyListNode<T> {
-        if (!node) return node;
+        if (!node) throw new Error('You need to provide the node to prepend.');
 
         if (!this.head) {
             this.head = node;

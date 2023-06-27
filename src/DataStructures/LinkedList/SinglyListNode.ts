@@ -14,11 +14,11 @@ export class SinglyListNode<T> {
         this._data = data;
     }
 
-    get next(): ListNode<T> | null {
+    get next(): SinglyListNode<T> | null {
         return this._next;
     }
 
-    set next(next: ListNode<T> | null) {
+    set next(next: SinglyListNode<T> | null) {
         this._next = next;
     }
 }

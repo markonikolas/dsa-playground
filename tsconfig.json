@@ -2,6 +2,12 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
+    "baseUrl": "./",
+    "paths": {
+      "@src/*": [
+        "src/*"
+      ]
+    },
     "lib": [
       "es6"
     ],
@@ -13,5 +19,9 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "sourceMap": true
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "dist/**/**"
+  ]
 }
